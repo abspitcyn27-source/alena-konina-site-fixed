@@ -1,4 +1,5 @@
 import CTAButtons from "../../../components/CTAButtons";
+import PriceGrid from "../../../components/PriceGrid";
 import { type Lang } from "../../../lib/content";
 
 export default function PricesPage({ params }: { params: { lang: Lang } }) {
@@ -10,26 +11,11 @@ export default function PricesPage({ params }: { params: { lang: Lang } }) {
         <h1>{lang === "ru" ? "Прайс" : "Pricing"}</h1>
         <p className="muted">
           {lang === "ru"
-            ? "Прайс можно заполнить точными цифрами позже. Сейчас — каркас страницы."
-            : "You can add exact prices later. This is the page scaffold."}
+            ? "Наведи на услугу, чтобы увидеть описание. Нажми — откроется фото прайса (как в сторис/посте)."
+            : "Hover an item to see details. Click to open the price-board photo (like an Instagram story/post)."}
         </p>
 
-        <div className="grid twoCol" style={{ marginTop: 18 }}>
-          <div className="card">
-            <h2>{lang === "ru" ? "Маникюр" : "Manicure"}</h2>
-            <ul className="list">
-              <li>{lang === "ru" ? "Маникюр + покрытие — от …" : "Manicure + gel — from …"}</li>
-              <li>{lang === "ru" ? "Укрепление — от …" : "Strengthening — from …"}</li>
-            </ul>
-          </div>
-          <div className="card">
-            <h2>{lang === "ru" ? "Педикюр" : "Pedicure"}</h2>
-            <ul className="list">
-              <li>{lang === "ru" ? "Педикюр — от …" : "Pedicure — from …"}</li>
-              <li>{lang === "ru" ? "Снятие/коррекция — от …" : "Removal/correction — from …"}</li>
-            </ul>
-          </div>
-        </div>
+        <PriceGrid lang={lang} />
 
         <div style={{ marginTop: 16 }}>
           <CTAButtons lang={lang} />

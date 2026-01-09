@@ -219,6 +219,174 @@ a:hover{ text-decoration: none; }
   font-size: 15px;
 }
 
+/* PRICES */
+.priceGrid{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+}
+
+.priceCard{
+  grid-column: span 12;
+  text-align: left;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(20,20,20,0.70);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 14px 36px var(--shadow);
+  padding: 18px 18px;
+  cursor: pointer;
+  position: relative;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.priceCard:hover{
+  transform: translateY(-1px);
+  border-color: rgba(201,166,107,0.38);
+  background: rgba(20,20,20,0.78);
+}
+
+.priceTop{
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.priceTitle{
+  margin: 0;
+  font-family: var(--font-serif), ui-serif, Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  letter-spacing: 0.15px;
+  line-height: 1.15;
+}
+
+.priceValue{
+  font-family: var(--font-serif), ui-serif, Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  letter-spacing: 0.2px;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.priceHint{
+  margin-top: 10px;
+  color: rgba(255,255,255,0.60);
+  font-size: 12px;
+  letter-spacing: 0.8px;
+}
+
+.priceTooltip{
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 14px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(14,14,14,0.92);
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: 13px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .16s ease, transform .16s ease;
+  pointer-events: none;
+}
+
+.priceCard:hover .priceTooltip{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (min-width: 860px){
+  .priceCard{ grid-column: span 6; padding: 22px 22px; }
+  .priceTitle{ font-size: 19px; }
+  .priceValue{ font-size: 26px; }
+  .priceTooltip{ left: 22px; right: 22px; }
+}
+
+/* LIGHTBOX */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgba(0,0,0,0.70);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.lightboxInner{
+  width: min(980px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(14,14,14,0.92);
+  box-shadow: 0 22px 70px var(--shadow);
+}
+
+.lightboxHeader{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 18px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.lightboxTitle{
+  font-family: var(--font-serif), ui-serif, Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+}
+
+.lightboxSub{
+  margin-top: 6px;
+  color: var(--accent);
+  font-family: var(--font-serif), ui-serif, Georgia, "Times New Roman", serif;
+  font-size: 20px;
+}
+
+.lightboxClose{
+  appearance: none;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 8px 11px;
+  cursor: pointer;
+}
+
+.lightboxBody{
+  padding: 16px 18px 20px;
+  display: grid;
+  gap: 12px;
+}
+
+.lightboxText{
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.lightboxImageWrap{
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.02);
+}
+
+.lightboxImage{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .list{
   margin: 10px 0 0;
   padding-left: 18px;
